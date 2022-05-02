@@ -1,15 +1,26 @@
 import React from "react";
 
 const Navbar = () => (
-  <nav className="container flex justify-around py-8 mx-auto bg-white">
-    <div className="items-center text-white hidden space-x-8 lg:flex">
-      <a href="">Home</a>
-      <a href="">Gallery</a>
+  <nav className="container flex justify-around py-3 mx-auto">
+    <div className="navbar items-center text-xs text-white hidden space-x-8 lg:flex">
+      <a className="hover:text-teal-400" href="">
+        HOME
+      </a>
+      <a className="hover:text-teal-400" href="">
+        GALLERY
+      </a>
       <div className="flex items-center">
-        <img src="./images/logo/logo_small.png" />
+        <img
+          className="object-contain h-10 w-10"
+          src="./images/logo/logo_small.png"
+        />
       </div>
-      <a href="">Mint</a>
-      <a href="">Connect</a>
+      <a className="hover:text-teal-400" href="">
+        MINT
+      </a>
+      <a className="hover:text-teal-400" href="">
+        CONNECT WALLET
+      </a>
     </div>
 
     {/* <div className="flex items-center space-x-2">

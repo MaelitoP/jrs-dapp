@@ -1,5 +1,12 @@
+/* stylelint-disable no-invalid-position-at-import-rule */
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+/* fonts */
+@import './font.css';
+
+/* components styles */
+@import './navbar.css';

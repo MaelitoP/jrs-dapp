@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Curumin';
+  src: url('../public/fonts/Curumin/Curumin.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Matey';
+  src: url('../public/fonts/Matey/ARRRMB.TTF');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pirates';
+  src: url('../public/fonts/Pirates.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
