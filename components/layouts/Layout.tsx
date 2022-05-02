@@ -1,3 +1,3 @@
 export default function Layout({ children }) {
-  return <div className="bg-stone-900">{children}</div>;
+  return <div className="bg-neutral-900">{children}</div>;
 }

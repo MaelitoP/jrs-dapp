@@ -2,3 +2,7 @@
   font-family: Pirates, sans-serif;
   font-weight: 100;
 }
+
+.navbar .active {
+  color: rgb(20 184 166);
+}
