@@ -4,10 +4,11 @@ const Footer = () => (
   <footer>
     <div
       className="
+        footer
         container
         flex flex-col flex-wrap
         px-3
-        py-16
+        py-2
         mx-auto
         md:items-center
         lg:items-start

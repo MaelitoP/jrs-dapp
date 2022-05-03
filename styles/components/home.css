@@ -1,0 +1,58 @@
+.welcome {
+  background-color: rgb(23 23 23);
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.welcome-title {
+  position: sticky;
+  font-family: Pirates, sans-serif;
+  font-size: 1.7em;
+  font-weight: 800;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.welcome-p {
+  text-align: justify;
+  font-size: 1em;
+}
+
+.welcome-btn {
+  background-color: rgb(20 184 166);
+  border-radius: 8px;
+  color: #000;
+  border: 0;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 5%;
+  margin: auto auto;
+  transition: 0.3s;
+}
+
+.discover {
+  width: 79px;
+}
+
+.scroll {
+  opacity: 0.25;
+  font-size: 0.7em;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: 0.05em;
+  line-height: 0.6em;
+  animation: blinker 1.3s linear infinite;
+}
+
+.rotate {
+  margin-left: 30px;
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+@media screen and (min-width: 992px) {
+  .welcome {
+    margin-top: -269px;
+  }
+}
