@@ -5,7 +5,8 @@ import Wallet from "../components/Wallet";
 const ConnectionPage = () => (
   <div className="wrapper">
     <Navbar active_page="Connection" />
-    <div className="grid grid-cols-5 gap-4">
+
+    <div className="content grid grid-cols-5 gap-4">
       <div className="col-span-2">
         <div className="flex-wrap pt-28 pb-28">
           <div className="mb-14 lg:col-span-8 col-span-12">

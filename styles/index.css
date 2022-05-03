@@ -10,11 +10,12 @@
 
 /* components styles */
 @import './components/navbar.css';
+@import './components/footer.css';
 @import './components/wallet.css';
 
 /* pages styles */
-@import './components/home.css';
-@import './components/footer.css';
+@import './pages/home.css';
+@import './pages/connection.css';
 
 .wrapper {
   max-width: 1200px;
