@@ -50,16 +50,36 @@ const Footer = () => (
         <div className="w-full px-4 lg:w-1/3 md:w-1/2">
           <ul className="mb-8 space-y-2 text-sm list-none">
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Instagram</a>
+              <a
+                className="text-gray-600 hover:text-teal-400"
+                target="_blank"
+                href="https://www.instagram.com/jollyrogersociety/"
+              >
+                Instagram
+              </a>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Twitter</a>
+              <a
+                className="text-gray-600 hover:text-teal-400"
+                target="_blank"
+                href="https://twitter.com/jollyrogernft"
+              >
+                Twitter
+              </a>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Telegram</a>
+              <a className="text-gray-600 hover:text-teal-400" href="">
+                Telegram
+              </a>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Discord</a>
+              <a
+                className="text-gray-600 hover:text-teal-400"
+                target="_blank"
+                href="https://discord.gg/kn7Py7AnAX"
+              >
+                Discord
+              </a>
             </li>
           </ul>
         </div>

@@ -3,7 +3,7 @@ import Footer from "../components/layouts/Footer";
 
 const IndexPage = () => (
   <div className="wrapper">
-    <Navbar />
+    <Navbar active_page="Home" />
 
     <div className="mb-5 lg:mb-0 row">
       <div className="mb-4 lg:mb-5">
