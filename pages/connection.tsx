@@ -25,7 +25,11 @@ const ConnectionPage = () => (
         </div>
       </div>
       <div className="col-span-3">
-        <img src="./images/pirate-ship.png" alt="Connection Artwork" />
+        <img
+          className="wallet-img m-auto mt-20 -rotate-12"
+          src="./images/pirate-bottle.png"
+          alt="Connection Artwork"
+        />
       </div>
     </div>
 

@@ -27,14 +27,14 @@ const IndexPage = () => (
               THE JRS COLLECTION
             </h1>
             <button
-              className="welcome-btn mb-4 w-100 hover:bg-white"
+              className="welcome-btn bg-teal-400 mb-4 w-100 hover:bg-white"
               type="button"
             >
               BECOME A PIRATE
             </button>
           </div>
           <div className="scroll m-auto pr-0 col-span-2">
-            <div className="discover rotate">← DISCOVER</div>
+            <div className="animate-pulse discover rotate">← DISCOVER</div>
           </div>
         </div>
       </div>
