@@ -41,7 +41,7 @@ const Navbar: React.FC<Props> = ({ active_page }) => (
           MINT
         </a>
       </Link>
-      <Link href="./connection">
+      <Link href="./login">
         <a
           className={`hover:text-teal-400 ${
             active_page === "Connection" ? "active" : ""

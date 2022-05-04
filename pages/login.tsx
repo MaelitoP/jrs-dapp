@@ -2,7 +2,7 @@ import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import Wallet from "../components/Wallet";
 
-const ConnectionPage = () => (
+const LoginPage = () => (
   <div className="wrapper">
     <Navbar active_page="Connection" />
 
@@ -37,4 +37,4 @@ const ConnectionPage = () => (
   </div>
 );
 
-export default ConnectionPage;
+export default LoginPage;

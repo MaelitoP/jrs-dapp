@@ -18,6 +18,7 @@ const Footer = () => (
       <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
         <img
           className="object-contain h-10 w-10 flex
+          mb-5
           items-center
           justify-center
           md:justify-start"
