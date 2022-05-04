@@ -26,3 +26,7 @@
 .border-bottom {
   border-bottom: 1px solid #dee2e6 !important;
 }
+
+.vip {
+  height: 500px;
+}

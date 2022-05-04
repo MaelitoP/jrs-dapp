@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ active_page }) => (
-  <nav className="container flex justify-around py-3 mx-auto">
+  <nav className="flex justify-center py-4">
     <div className="navbar items-center text-xs text-white hidden space-x-8 lg:flex">
       <Link href="/">
         <a

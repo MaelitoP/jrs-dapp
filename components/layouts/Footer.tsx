@@ -6,7 +6,7 @@ const Footer = () => (
       className="
         footer
         container
-        flex flex-col flex-wrap
+        flex
         px-5
         py-2
         mx-auto
@@ -15,7 +15,7 @@ const Footer = () => (
         md:flex-row md:flex-nowrap
       "
     >
-      <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+      <div className="mx-auto text-center md:mx-0 md:text-left">
         <img
           className="object-contain h-10 w-10 flex
           mb-5
