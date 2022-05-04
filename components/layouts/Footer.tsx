@@ -7,7 +7,7 @@ const Footer = () => (
         footer
         container
         flex flex-col flex-wrap
-        px-3
+        px-5
         py-2
         mx-auto
         md:items-center

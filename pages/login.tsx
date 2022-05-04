@@ -4,7 +4,9 @@ import { Web3Provider } from "@ethersproject/providers";
 
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
+
 import Wallet from "../components/Wallet";
+import Account from "../components/Account";
 
 import { injected, walletconnect, walletlink } from "../config/connectors";
 import {
@@ -51,18 +53,22 @@ const LoginPage = () => {
   const handleMetaMask = () => {
     setActivatingConnector("Injected");
     activate(connectorsByName["Injected"], (err) => {
-      if (err) {
-        setActivatingConnector(undefined);
-      }
+      if (err) setActivatingConnector(undefined);
     });
   };
 
   const handleCoinbaseWallet = () => {
-    return null;
+    setActivatingConnector("WalletLink");
+    activate(connectorsByName["WalletLink"], (err) => {
+      if (err) setActivatingConnector(undefined);
+    });
   };
 
   const handleWalletConnect = () => {
-    return null;
+    setActivatingConnector("WalletConnect");
+    activate(connectorsByName["WalletConnect"], (err) => {
+      if (err) setActivatingConnector(undefined);
+    });
   };
 
   return (
@@ -70,7 +76,12 @@ const LoginPage = () => {
       <Navbar active_page="Connection" />
 
       {active && account ? (
-        <h1>Connected !</h1>
+        <div className="grid place-items-center h-screen">
+          <div className="flex-wrap">
+            <h2 className="welcome-title mb-3">WALLET LINKED</h2>
+            <Account />
+          </div>
+        </div>
       ) : (
         <Wallets
           handleMetaMask={handleMetaMask}
@@ -98,8 +109,8 @@ const Wallets = ({
   return (
     <>
       <div className="content grid grid-cols-5 gap-4">
-        <div className="col-span-2">
-          <div className="flex-wrap pt-28 pb-28">
+        <div className="ml-10 col-span-2">
+          <div className="ml-10 flex-wrap pt-28 pb-28">
             <div className="mb-14 lg:col-span-8 col-span-12">
               <h2 className="welcome-title mb-3">CONNECT YOUR WALLET</h2>
               <p className="welcome-p text-gray-200 mb-0">
@@ -125,8 +136,8 @@ const Wallets = ({
         </div>
         <div className="col-span-3">
           <img
-            className="wallet-img m-auto mt-20 -rotate-12"
-            src="./images/pirate-bottle.png"
+            className="wallet-img m-auto mt-20 border-b-2 border-black"
+            src="./images/jrs-pirate.png"
             alt="Connection Artwork"
           />
         </div>

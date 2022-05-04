@@ -1,5 +1,6 @@
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
+import Link from "next/link";
 
 const IndexPage = () => (
   <div className="wrapper">
@@ -26,12 +27,14 @@ const IndexPage = () => (
               <br />
               THE JRS COLLECTION
             </h1>
-            <button
-              className="welcome-btn bg-teal-400 mb-4 w-100 hover:bg-white"
-              type="button"
-            >
-              BECOME A PIRATE
-            </button>
+            <Link href="/gallery">
+              <button
+                className="welcome-btn bg-teal-400 mb-4 w-100 hover:bg-white"
+                type="button"
+              >
+                BECOME A PIRATE
+              </button>
+            </Link>
           </div>
           <div className="scroll m-auto pr-0 col-span-2">
             <div className="animate-pulse discover rotate">← DISCOVER</div>
