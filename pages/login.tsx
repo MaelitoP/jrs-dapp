@@ -29,6 +29,8 @@ const LoginPage = () => {
   const { connector, library, account, activate, deactivate, active, error } =
     context;
 
+  console.log(context);
+
   // Handle logic to recognize the connector currently being activated
   const [activatingConnector, setActivatingConnector] = useState<any>();
 
@@ -47,7 +49,12 @@ const LoginPage = () => {
   useInactiveListener(!triedEager || !!activatingConnector);
 
   const handleMetaMask = () => {
-    console.log("handled !");
+    setActivatingConnector("Injected");
+    activate(connectorsByName["Injected"], (err) => {
+      if (err) {
+        setActivatingConnector(undefined);
+      }
+    });
   };
 
   const handleCoinbaseWallet = () => {
@@ -62,6 +69,34 @@ const LoginPage = () => {
     <div className="wrapper">
       <Navbar active_page="Connection" />
 
+      {active && account ? (
+        <h1>Connected !</h1>
+      ) : (
+        <Wallets
+          handleMetaMask={handleMetaMask}
+          handleCoinbaseWallet={handleCoinbaseWallet}
+          handleWalletConnect={handleWalletConnect}
+        />
+      )}
+
+      <Footer />
+    </div>
+  );
+};
+
+type TWallets = {
+  handleMetaMask: MouseEventHandler<HTMLDivElement>;
+  handleCoinbaseWallet: MouseEventHandler<HTMLDivElement>;
+  handleWalletConnect: MouseEventHandler<HTMLDivElement>;
+};
+
+const Wallets = ({
+  handleMetaMask,
+  handleCoinbaseWallet,
+  handleWalletConnect,
+}: TWallets) => {
+  return (
+    <>
       <div className="content grid grid-cols-5 gap-4">
         <div className="col-span-2">
           <div className="flex-wrap pt-28 pb-28">
@@ -96,9 +131,7 @@ const LoginPage = () => {
           />
         </div>
       </div>
-
-      <Footer />
-    </div>
+    </>
   );
 };
 
