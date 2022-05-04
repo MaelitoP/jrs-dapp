@@ -8,6 +8,16 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.6.5",
+    "@ethersproject/units": "^5.6.0",
+    "@web3-react/coinbase-wallet": "^8.0.22-beta.0",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/metamask": "^8.0.0-beta.0",
+    "@web3-react/store": "^8.0.0-beta.0",
+    "@web3-react/types": "^6.0.7",
+    "@web3-react/walletconnect": "^8.0.1-beta.0",
+    "@web3-react/walletconnect-connector": "^6.2.13",
+    "@web3-react/walletlink-connector": "^6.2.14",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -17,6 +27,7 @@
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@web3-react/injected-connector": "^6.0.7",
     "postcss-preset-env": "^7.4.4",
     "stylelint-config-recommended": "^7.0.0",
     "tailwindcss": "^3.0.24",
