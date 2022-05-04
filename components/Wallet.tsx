@@ -1,12 +1,16 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 type Props = {
   name: string;
   uri: string;
+  onClick: MouseEventHandler<HTMLDivElement>;
 };
 
-const Wallet = ({ name, uri }: Props) => (
-  <div className="cursor-pointer grid col-span-4 relative mb-2">
+const Wallet = ({ name, uri, onClick }: Props) => (
+  <div
+    className="cursor-pointer grid col-span-4 relative mb-2"
+    onClick={onClick}
+  >
     <div className="flex group shadow-lg outline outline-1 outline-gray-800 bg-transparent py-2 pr-6 pl-9 rounded-lg">
       <div className="icon">
         <img src={`./images/wallet/${uri}.webp`} alt={`${name} logo`} />

@@ -8,7 +8,7 @@ interface Props {
 const Navbar: React.FC<Props> = ({ active_page }) => (
   <nav className="container flex justify-around py-3 mx-auto">
     <div className="navbar items-center text-xs text-white hidden space-x-8 lg:flex">
-      <Link href="./">
+      <Link href="/">
         <a
           className={`hover:text-teal-400 ${
             active_page === "Home" ? "active" : ""
@@ -17,7 +17,7 @@ const Navbar: React.FC<Props> = ({ active_page }) => (
           HOME
         </a>
       </Link>
-      <Link href="./gallery">
+      <Link href="/gallery">
         <a
           className={`hover:text-teal-400 ${
             active_page === "Gallery" ? "active" : ""
@@ -32,7 +32,7 @@ const Navbar: React.FC<Props> = ({ active_page }) => (
           src="./images/logo/logo_small.png"
         />
       </div>
-      <Link href="./mint">
+      <Link href="/mint">
         <a
           className={`hover:text-teal-400 ${
             active_page === "Mint" ? "active" : ""
@@ -41,7 +41,7 @@ const Navbar: React.FC<Props> = ({ active_page }) => (
           MINT
         </a>
       </Link>
-      <Link href="./login">
+      <Link href="/login">
         <a
           className={`hover:text-teal-400 ${
             active_page === "Connection" ? "active" : ""
