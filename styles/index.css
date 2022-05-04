@@ -30,3 +30,7 @@
 .vip {
   height: 500px;
 }
+
+.info {
+  background-image: url('/images/map-bg.jpg');
+}
