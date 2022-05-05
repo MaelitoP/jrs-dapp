@@ -1,0 +1,23 @@
+.filter-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.filter-title,
+.filter-content {
+  padding: 0.5rem;
+  color: #ffffff;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  display: inline;
+  -moz-text-decoration-line: none;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none !important;
+}

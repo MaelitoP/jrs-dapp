@@ -1,9 +1,33 @@
-import { User } from '../interfaces'
+import { Attributes } from '../interfaces'
 
-/** Dummy user data. */
-export const sampleUserData: User[] = [
-  { id: 101, name: 'Alice' },
-  { id: 102, name: 'Bob' },
-  { id: 103, name: 'Caroline' },
-  { id: 104, name: 'Dave' },
+/** Dummy attributes data. */
+export const sampleNFTData: Attributes[] = [
+  {
+    name: 'Skeleton',
+    attributes: [
+      {
+        name: 'Grass',
+      },
+      {
+        name: 'Rock 1',
+      },
+      {
+        name: 'Zombie',
+      },
+    ],
+  },
+  {
+    name: 'Mouth',
+    attributes: [
+      {
+        name: 'Trait 1',
+      },
+      {
+        name: 'Trait 2',
+      },
+      {
+        name: 'Trait 3',
+      },
+    ],
+  },
 ]

@@ -4,6 +4,7 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+@tailwind forms;
 
 /* fonts */
 @import './font.css';
@@ -12,11 +13,13 @@
 @import './components/navbar.css';
 @import './components/footer.css';
 @import './components/wallet.css';
+@import './components/dropdown.css';
 
 /* pages styles */
 @import './pages/home.css';
 @import './pages/connection.css';
 @import './pages/mint.css';
+@import './pages/gallery.css';
 
 .wrapper {
   max-width: 1200px;
@@ -34,4 +37,8 @@
 
 .info {
   background-image: url('/images/map-bg.jpg');
+}
+
+input:focus {
+  outline: none !important;
 }
