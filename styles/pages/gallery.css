@@ -1,5 +1,5 @@
 .gallery-container {
-    transition: opacity 400ms ease 0s, transform 400ms ease 0s;
-    transform: none;
-    opacity: 1;
+  transition: opacity 400ms ease 5s, transform 400ms ease 0s;
+  transform: none;
+  opacity: 1;
 }
