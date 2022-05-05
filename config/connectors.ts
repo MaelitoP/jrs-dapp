@@ -7,14 +7,17 @@ export const injected = new InjectedConnector({
 })
 
 export const walletconnect = new WalletConnectConnector({
-  rpc: ['https://api.etherscan.io/', 'https://api-rinkeby.etherscan.io/'],
+  rpc: [
+    'https://api.etherscan.io/',
+    'https://eth-rinkeby.alchemyapi.io/v2/EtyrKsf65ASfCsuxQ-AlVAuhTxSRzE1H',
+  ],
   chainId: 4,
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
 })
 
 export const walletlink = new WalletLinkConnector({
-  url: 'https://api-rinkeby.etherscan.io/',
+  url: 'https://eth-rinkeby.alchemyapi.io/v2/EtyrKsf65ASfCsuxQ-AlVAuhTxSRzE1H',
   appName: 'web3-react example',
   supportedChainIds: [1, 4],
 })
