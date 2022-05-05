@@ -73,7 +73,7 @@ const LoginPage = () => {
 
   return (
     <div className="wrapper">
-      <Navbar active_page="Connection" />
+      <Navbar active_page="Login" />
 
       {active && account ? (
         <div className="grid place-items-center h-screen">
