@@ -24,7 +24,7 @@ const MintPage = () => (
                       Price
                     </label>
                     <input
-                      placeholder="0 ETH"
+                      defaultValue="0"
                       className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
                       required
                       type="number"
@@ -49,8 +49,7 @@ const MintPage = () => (
                         <input
                           type="number"
                           className="outline-none focus:outline-none block text-center w-full bg-grey-lighter text-grey-darker font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700 border border-grey-lighter outline-none"
-                          name="custom-input-number"
-                          value="0"
+                          defaultValue="0"
                         ></input>
                         <button className="bg-gray-200 text-grey-darker hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r-lg cursor-pointer">
                           <span className="m-auto text-2xl font-thin">+</span>

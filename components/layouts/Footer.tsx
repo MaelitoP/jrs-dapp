@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => (
@@ -34,18 +35,26 @@ const Footer = () => (
         <div className="w-full px-4 lg:w-1/3 md:w-1/2">
           <ul className="mb-8 space-y-2 text-sm list-none">
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Home</a>
+              <Link href="/">
+                <a className="text-gray-600 hover:text-teal-400">Home</a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Gallery</a>
+              <Link href="/gallery">
+                <a className="text-gray-600 hover:text-teal-400">Gallery</a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-teal-400">Mint</a>
+              <Link href="/mint">
+                <a className="text-gray-600 hover:text-teal-400">Mint</a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-600 hover:text-teal-400">
-                Connect Wallet
-              </a>
+              <Link href="/login">
+                <a className="text-gray-600 hover:text-teal-400">
+                  Connect Wallet
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
