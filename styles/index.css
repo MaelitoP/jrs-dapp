@@ -16,6 +16,7 @@
 /* pages styles */
 @import './pages/home.css';
 @import './pages/connection.css';
+@import './pages/mint.css';
 
 .wrapper {
   max-width: 1200px;
