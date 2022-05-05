@@ -6,11 +6,11 @@ const VIPPage = () => (
   <div className="wrapper">
     <Navbar active_page="VIP" />
 
-    <div className="flex justify-center py-20">
+    <div className="flex justify-center py-28">
       <div className="flex w-1/2">
         <div className="justify-start">
           <img
-            className="animate-float vip border-t-2 border-gray-900"
+            className="animate-float vip"
             src="/images/jrs-vip.png"
             alt="JRS VIP Card"
           />
