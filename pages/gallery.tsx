@@ -25,17 +25,18 @@ const GalleryPage = ({ data }) => {
                 <Dropdown key={name} name={name} attributes={attributes} />
               ))}
             </div>
-            <div className="col-span-2 bg-red-200">
-              1
-              {/* {data.map((metadata, index) => (
+            <div className="col-span-2">
+              {data.map((metadata, index) => (
                 <Image
                   key={index}
+                  blurDataURL="https://media1.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif?cid=ecf05e4738ueiwkbt9433t8ezfdj9ivu1z0fv188vms7q7vb&rid=giphy.gif&ct=g"
+                  placeholder="blur"
                   src={metadata.image}
                   alt={metadata.description}
                   width="300"
                   height="300"
                 />
-              ))} */}
+              ))}
             </div>
           </div>
         </div>
@@ -49,7 +50,7 @@ const GalleryPage = ({ data }) => {
 export async function getServerSideProps() {
   // Fetch data from external API
   const res = await fetch(
-    `https://bafybeib76xx535qg7gsm5x537zz5wyzlwhfqx6twekjhgkxtgsfk66cqzy.ipfs.dweb.link/json/_metadata.json`
+    `https://bafybeievgx7rdlemudnvgyto5t2wq2mpnlg66blpa3uyqzdat5i5yrumva.ipfs.dweb.link/json/_metadata.json`
   );
   const data = await res.json();
   // Pass data to the page via props

@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['ipfs.dweb.link'],
+    domains: ['ipfs.io'],
     formats: ['image/avif', 'image/webp'],
   },
 }
