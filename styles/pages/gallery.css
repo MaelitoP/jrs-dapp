@@ -3,3 +3,7 @@
   transform: none;
   opacity: 1;
 }
+
+.gallery > span {
+  border-radius: 8px;
+}
