@@ -25,7 +25,7 @@ const GalleryPage = ({ data }) => {
                 <Dropdown key={name} name={name} attributes={attributes} />
               ))}
             </div>
-            <div className="gallery col-span-3">
+            <div className="gallery col-span-3 grid grid-cols-3 gap-8">
               {data.map((metadata, index) => (
                 <Image
                   key={index}
@@ -36,6 +36,7 @@ const GalleryPage = ({ data }) => {
                   alt={metadata.description}
                   width="255"
                   height="255"
+                  priority
                 />
               ))}
             </div>
