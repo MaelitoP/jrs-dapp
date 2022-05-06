@@ -20,7 +20,7 @@ const GalleryPage = ({ data }) => {
                 GALLERY
               </h2>
             </div>
-            <div className="col-span-1 w-60">
+            <div className="filter col-span-1">
               {sampleNFTData.map(({ name, attributes }) => (
                 <Dropdown key={name} name={name} attributes={attributes} />
               ))}

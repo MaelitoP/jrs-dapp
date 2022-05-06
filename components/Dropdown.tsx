@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RiArrowDownSLine, RiArrowRightSLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 type TProps = {
   name: string;
@@ -18,14 +18,15 @@ const Dropdown = ({ name, attributes }: TProps) => {
       index === position ? !item : item
     );
 
+    setIsActive(false);
     setCheckedState(updatedCheckedState);
   };
 
   return (
-    <div className="filter-item mb-5">
+    <div className="filter-item mb-5 border-b-[1px] border-gray-600">
       <div className="filter-title" onClick={() => setIsActive(!isActive)}>
-        <div>{name}</div>
-        <div>{isActive ? <RiArrowDownSLine /> : <RiArrowRightSLine />}</div>
+        <div className="italic">{name}</div>
+        <div>{isActive ? <RiArrowUpSLine /> : <RiArrowDownSLine />}</div>
       </div>
       {isActive && (
         <div className="filter-content">
