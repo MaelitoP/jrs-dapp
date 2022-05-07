@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppProps } from "next/app";
 
 import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
+
+import { ReactQueryDevtools } from "react-query/devtools";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 
 import Layout from "../components/layouts/Layout";
 
@@ -15,12 +18,19 @@ function getLibrary(provider: any): Web3Provider {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Web3ReactProvider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Layout>
+            <Component {...pageProps} />
+            <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
+          </Layout>
+        </Web3ReactProvider>
+      </Hydrate>
+    </QueryClientProvider>
   );
 }
 
