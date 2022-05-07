@@ -20,13 +20,12 @@
     "@web3-react/walletlink-connector": "^6.2.14",
     "axios": "^0.27.2",
     "ethers": "^5.6.5",
-    "flowbite": "^1.4.5",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-query": "^3.38.1",
+    "throttle-debounce": "^5.0.0",
     "web3": "^1.7.3"
   },
   "devDependencies": {
@@ -35,6 +34,7 @@
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@types/throttle-debounce": "^5.0.0",
     "@web3-react/injected-connector": "^6.0.7",
     "postcss-preset-env": "^7.4.4",
     "stylelint-config-recommended": "^7.0.0",
