@@ -11,7 +11,7 @@ const VIPPage = () => (
         <div className="justify-start">
           <img
             className="animate-float vip"
-            src="/images/jrs-vip.png"
+            src="/images/jrs-vip.gif"
             alt="JRS VIP Card"
           />
         </div>
