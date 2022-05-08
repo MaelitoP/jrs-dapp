@@ -1,18 +1,7 @@
 {
-  "address": "0xbb08F445f8AAA80d5F11E219101c0a2A1FE62b68",
+  "address": "0xdCf042F2e40D476aB2859011A0Df5f438914B76d",
   "abi": [
-    {
-      "inputs": [
-        {
-          "internalType": "uint96",
-          "name": "_royaltyFeesInBips",
-          "type": "uint96"
-        },
-        { "internalType": "string", "name": "_contractURI", "type": "string" }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
+    { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
     {
       "inputs": [],
       "name": "ApprovalCallerNotOwnerNorApproved",
@@ -137,6 +126,13 @@
       "type": "event"
     },
     {
+      "inputs": [],
+      "name": "_max",
+      "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         { "internalType": "address", "name": "to", "type": "address" },
         { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
@@ -156,9 +152,34 @@
       "type": "function"
     },
     {
+      "inputs": [
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "contractURI",
       "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deleteDefaultRoyalty",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "exists",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -168,6 +189,15 @@
       ],
       "name": "getApproved",
       "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" }
+      ],
+      "name": "getAux",
+      "outputs": [{ "internalType": "uint64", "name": "", "type": "uint64" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -183,7 +213,7 @@
     },
     {
       "inputs": [
-        { "internalType": "uint256", "name": "mint_id", "type": "uint256" }
+        { "internalType": "uint256", "name": "quantity", "type": "uint256" }
       ],
       "name": "mint",
       "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
@@ -194,6 +224,15 @@
       "inputs": [],
       "name": "name",
       "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" }
+      ],
+      "name": "numberMinted",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -211,6 +250,20 @@
       "name": "ownerOf",
       "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pauseMinting",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -268,9 +321,33 @@
     },
     {
       "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" },
+        { "internalType": "uint64", "name": "aux", "type": "uint64" }
+      ],
+      "name": "setAux",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
         { "internalType": "string", "name": "_contractURI", "type": "string" }
       ],
       "name": "setContractURI",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "tokenIds",
+          "type": "uint256[]"
+        },
+        { "internalType": "string[]", "name": "tokenURIs", "type": "string[]" }
+      ],
+      "name": "setMultipleTokenURI",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -326,6 +403,13 @@
     },
     {
       "inputs": [],
+      "name": "totalMinted",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "totalSupply",
       "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
@@ -352,8 +436,5 @@
       "type": "function"
     }
   ],
-  "parameters": {
-    "_royaltyFeesInBips": 100,
-    "_contractURI": "https://bafybeif2gfgnodzmihbg3ta5o6umsfpk4u7e5lufodtosxubarvqjqixpi.ipfs.dweb.link/metadata/metadataJRSV.json"
-  }
+  "parameters": {}
 }
