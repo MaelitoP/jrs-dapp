@@ -14,9 +14,9 @@ const Dropdown = ({ name, attributes }: TProps) => {
   );
 
   const handleOnChange = (position: any) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    );
+    const updatedCheckedState = checkedState
+      .map((item, index) => (position !== index && item ? !item : item))
+      .map((item, index) => (index === position ? !item : item));
 
     setIsActive(false);
     setCheckedState(updatedCheckedState);

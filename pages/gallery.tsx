@@ -10,15 +10,19 @@ import Dropdown from "../components/Dropdown";
 import Image from "../components/Image";
 
 const GalleryPage = ({ metadata }) => {
+  const [filter, setFilter] = useState(metadata);
+
+  const test = metadata.filter((item) => item.attributes[1].value === "Moss");
+
+  console.log(test);
+
   const [count, setCount] = useState({
     prev: 0,
     next: 10,
   });
 
   const [hasMore, setHasMore] = useState(true);
-  const [current, setCurrent] = useState(
-    metadata.slice(count.prev, count.next)
-  );
+  const [current, setCurrent] = useState(filter.slice(count.prev, count.next));
 
   const getMoreData = () => {
     if (current.length === metadata.length) {
