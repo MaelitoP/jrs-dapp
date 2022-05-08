@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import InfiniteScroll from "../components/InfiniteScroll";
@@ -12,10 +12,6 @@ import Image from "../components/Image";
 const GalleryPage = ({ metadata }) => {
   const [filter, setFilter] = useState(metadata);
 
-  const test = metadata.filter((item) => item.attributes[1].value === "Moss");
-
-  console.log(test);
-
   const [count, setCount] = useState({
     prev: 0,
     next: 10,
@@ -25,13 +21,13 @@ const GalleryPage = ({ metadata }) => {
   const [current, setCurrent] = useState(filter.slice(count.prev, count.next));
 
   const getMoreData = () => {
-    if (current.length === metadata.length) {
+    if (current.length === filter.length) {
       setHasMore(false);
       return;
     }
     setTimeout(() => {
       setCurrent(
-        current.concat(metadata.slice(count.prev + 10, count.next + 10))
+        current.concat(filter.slice(count.prev + 10, count.next + 10))
       );
     }, 2000);
     setCount((prevState) => ({
@@ -39,6 +35,10 @@ const GalleryPage = ({ metadata }) => {
       next: prevState.next + 10,
     }));
   };
+
+  useEffect(() => {
+    setCurrent(filter);
+  }, [filter]);
 
   return (
     <div className="wrapper">
@@ -54,7 +54,14 @@ const GalleryPage = ({ metadata }) => {
             </div>
             <div className="filter col-span-1">
               {sampleNFTData.map(({ name, attributes }) => (
-                <Dropdown key={name} name={name} attributes={attributes} />
+                <Dropdown
+                  key={name}
+                  name={name}
+                  attributes={attributes}
+                  filter={filter}
+                  setFilter={setFilter}
+                  metadata={metadata}
+                />
               ))}
             </div>
             <InfiniteScroll

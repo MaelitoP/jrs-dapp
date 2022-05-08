@@ -6,10 +6,10 @@ export const sampleNFTData: Attributes[] = [
     name: 'Skeleton',
     attributes: [
       {
-        name: 'Grass',
+        name: 'Bones',
       },
       {
-        name: 'Rock 1',
+        name: 'Moss',
       },
       {
         name: 'Zombie',

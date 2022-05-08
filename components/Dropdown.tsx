@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch } from "react";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 type TProps = {
   name: string;
   attributes: any;
+  filter: any;
+  setFilter: Dispatch<React.SetStateAction<string>>;
+  metadata: any;
 };
 
-const Dropdown = ({ name, attributes }: TProps) => {
+const Dropdown = ({
+  name,
+  attributes,
+  filter,
+  setFilter,
+  metadata,
+}: TProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const [checkedState, setCheckedState] = useState(
     new Array(attributes.length).fill(false)
   );
 
-  const handleOnChange = (position: any) => {
+  const updateFilter = (attributeName: string) => {
+    setFilter(
+      metadata.filter((item) => item.attributes[1].value === attributeName)
+    );
+  };
+
+  const handleOnChange = (position: any, attributeName: string) => {
     const updatedCheckedState = checkedState
       .map((item, index) => (position !== index && item ? !item : item))
       .map((item, index) => (index === position ? !item : item));
+    setCheckedState(updatedCheckedState);
+
+    // Filter metadata if attribute selected
+    if (updatedCheckedState[position]) updateFilter(attributeName);
+    else setFilter(metadata);
 
     setIsActive(false);
-    setCheckedState(updatedCheckedState);
   };
 
   return (
@@ -40,7 +59,7 @@ const Dropdown = ({ name, attributes }: TProps) => {
                     name={name}
                     value={name}
                     checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
+                    onChange={() => handleOnChange(index, name)}
                   />
                   <span className="ml-2 text-gray-400">{name}</span>
                 </label>
