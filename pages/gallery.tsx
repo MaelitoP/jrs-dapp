@@ -22,14 +22,17 @@ const GalleryPage = ({ metadata }) => {
 
   const getMoreData = () => {
     if (current.length === filter.length) {
+      console.log("No more images to load...");
       setHasMore(false);
       return;
     }
+
     setTimeout(() => {
       setCurrent(
         current.concat(filter.slice(count.prev + 10, count.next + 10))
       );
-    }, 2000);
+    }, 1000);
+
     setCount((prevState) => ({
       prev: prevState.prev + 10,
       next: prevState.next + 10,
@@ -37,13 +40,7 @@ const GalleryPage = ({ metadata }) => {
   };
 
   useEffect(() => {
-    setCount({
-      prev: 0,
-      next: 10,
-    });
-    setCurrent(filter.slice(count.prev, count.next));
-    console.log(filter);
-    if (count.next + 10 > filter.length) console.log("- bug detected -");
+    setCurrent(filter);
   }, [filter]);
 
   return (
@@ -64,7 +61,6 @@ const GalleryPage = ({ metadata }) => {
                   key={name}
                   name={name}
                   attributes={attributes}
-                  filter={filter}
                   setFilter={setFilter}
                   metadata={metadata}
                 />
@@ -72,7 +68,7 @@ const GalleryPage = ({ metadata }) => {
             </div>
             <InfiniteScroll
               className="gallery col-span-3 grid grid-cols-3 gap-8"
-              dataLength={current.length}
+              dataLength={filter.length}
               next={getMoreData}
               hasMore={hasMore}
               loader={<></>}

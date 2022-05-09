@@ -119,7 +119,7 @@ export default class InfiniteScroll extends Component<Props, State> {
         throw new Error(
           `Mandatory prop "refreshFunction" missing.
           Pull Down To Refresh functionality will not work
-          as expected. Check README.md for usage'`
+          as expected`
         );
       }
     }
@@ -178,7 +178,7 @@ export default class InfiniteScroll extends Component<Props, State> {
     if (this.props.scrollableTarget === null) {
       console.warn(`You are trying to pass scrollableTarget but it is null. This might
         happen because the element may not have been added to DOM yet.
-        See https://github.com/ankeetmaini/react-infinite-scroll-component/issues/59 for more info.
+        
       `);
     }
     return null;

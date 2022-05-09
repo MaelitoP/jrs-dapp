@@ -4,18 +4,11 @@ import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 type TProps = {
   name: string;
   attributes: any;
-  filter: any;
   setFilter: Dispatch<React.SetStateAction<string>>;
   metadata: any;
 };
 
-const Dropdown = ({
-  name,
-  attributes,
-  filter,
-  setFilter,
-  metadata,
-}: TProps) => {
+const Dropdown = ({ name, attributes, setFilter, metadata }: TProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const [checkedState, setCheckedState] = useState(
