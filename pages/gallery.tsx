@@ -37,7 +37,13 @@ const GalleryPage = ({ metadata }) => {
   };
 
   useEffect(() => {
-    setCurrent(filter);
+    setCount({
+      prev: 0,
+      next: 10,
+    });
+    setCurrent(filter.slice(count.prev, count.next));
+    console.log(filter);
+    if (count.next + 10 > filter.length) console.log("- bug detected -");
   }, [filter]);
 
   return (
@@ -91,6 +97,9 @@ const GalleryPage = ({ metadata }) => {
                   )
                 )}
             </InfiniteScroll>
+            <button className="text-white" onClick={() => getMoreData()}>
+              - Load more -
+            </button>
           </div>
         </div>
       </div>
