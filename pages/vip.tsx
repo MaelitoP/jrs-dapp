@@ -5,7 +5,7 @@ import Footer from "../components/layouts/Footer";
 import { Accordion } from "../components/Accordion";
 
 const VIPPage = () => {
-  const [accessNumber, setAccessNumber] = useState(0);
+  const [accessNumber, setAccessNumber] = useState(1);
 
   return (
     <div className="wrapper">
@@ -40,7 +40,7 @@ const VIPPage = () => {
 
               <div className="flex flex-row h-9 w-full rounded-lg relative bg-transparent mt-2 ">
                 <button
-                  className="bg-gray-800 text-white hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-l-lg cursor-pointer outline-none"
+                  className="bg-gray-800 text-white hover:text-white hover:bg-gray-700 h-full w-20 rounded-l-lg cursor-pointer outline-none"
                   onClick={() => {
                     if (accessNumber != 0) setAccessNumber(accessNumber - 1);
                   }}
@@ -50,11 +50,15 @@ const VIPPage = () => {
 
                 <input
                   type="number"
-                  className="outline-none focus:outline-none block text-center w-full bg-gray-600 font-semibold text-md hover:text-gray-200 focus:text-gray-100  md:text-basecursor-default flex items-center text-white"
+                  className="outline-none focus:outline-none block text-center w-full bg-white font-semibold text-md md:text-basecursor-default flex items-center text-gray-500"
                   value={accessNumber}
+                  onChange={(e) => {
+                    const value = parseInt(e.target.value);
+                    if (value >= 0) setAccessNumber(value);
+                  }}
                 ></input>
                 <button
-                  className="bg-gray-800 text-white hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r-lg cursor-pointer"
+                  className="bg-gray-800 text-white hover:text-white hover:bg-gray-700 h-full w-20 rounded-r-lg cursor-pointer"
                   onClick={() => {
                     setAccessNumber(accessNumber + 1);
                   }}
