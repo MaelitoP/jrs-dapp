@@ -1,5 +1,6 @@
 import React, { useState, Dispatch } from "react";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import { sampleNFTData } from "../utils/sample-data";
 
 type TProps = {
   name: string;
@@ -15,10 +16,28 @@ const Dropdown = ({ name, attributes, setFilter, metadata }: TProps) => {
     new Array(attributes.length).fill(false)
   );
 
+  // Get number of attributes / category
+  const attributesByCategory = [
+    sampleNFTData[0].attributes.length,
+    sampleNFTData[1].attributes.length,
+    sampleNFTData[2].attributes.length,
+    sampleNFTData[3].attributes.length,
+    sampleNFTData[4].attributes.length,
+    sampleNFTData[5].attributes.length,
+    sampleNFTData[6].attributes.length,
+    sampleNFTData[7].attributes.length,
+    sampleNFTData[8].attributes.length,
+    sampleNFTData[9].attributes.length,
+  ];
+
   const updateFilter = (attributeName: string) => {
-    setFilter(
-      metadata.filter((item) => item.attributes[1].value === attributeName)
-    );
+    const filteredArr = metadata;
+
+    checkedState.forEach((value, index) => {
+      console.log(value, index);
+    });
+
+    setFilter(filteredArr);
   };
 
   const handleOnChange = (position: any, attributeName: string) => {
@@ -27,9 +46,10 @@ const Dropdown = ({ name, attributes, setFilter, metadata }: TProps) => {
       .map((item, index) => (index === position ? !item : item));
     setCheckedState(updatedCheckedState);
 
+    updateFilter(attributeName);
     // Filter metadata if attribute selected
-    if (updatedCheckedState[position]) updateFilter(attributeName);
-    else setFilter(metadata);
+    // if (updatedCheckedState[position]) updateFilter(attributeName);
+    // else setFilter(metadata);
 
     setIsActive(false);
   };

@@ -32,7 +32,7 @@ const Image = (props) => {
 
 const isMobileConnection = () => {
   const connection =
-    navigator.connection ||
+    navigator["connection"] ||
     navigator["mozConnection"] ||
     navigator["webkitConnection"];
   return (

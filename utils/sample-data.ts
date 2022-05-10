@@ -50,13 +50,22 @@ export const sampleNFTData: Attributes[] = [
     name: 'Teeth',
     attributes: [
       {
-        name: 'Trait 1',
+        name: 'White',
       },
       {
-        name: 'Trait 2',
+        name: 'White gold tooth',
       },
       {
-        name: 'Trait 3',
+        name: 'White red tooth',
+      },
+      {
+        name: 'White blue tooth',
+      },
+      {
+        name: 'White rose tooth',
+      },
+      {
+        name: 'White metal tooth',
       },
     ],
   },
