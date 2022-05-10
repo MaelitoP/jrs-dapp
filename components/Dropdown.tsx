@@ -1,55 +1,69 @@
 import React, { useState, Dispatch } from "react";
-import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import {
+  RiArrowDownSLine,
+  RiArrowUpSLine,
+  RiContactsBookUploadLine,
+} from "react-icons/ri";
 import { sampleNFTData } from "../utils/sample-data";
 
 type TProps = {
   name: string;
   attributes: any;
+  filter: any;
   setFilter: Dispatch<React.SetStateAction<string>>;
   metadata: any;
 };
 
-const Dropdown = ({ name, attributes, setFilter, metadata }: TProps) => {
+const Dropdown = ({
+  name,
+  attributes,
+  setFilter,
+  metadata,
+  filter,
+}: TProps) => {
   const [isActive, setIsActive] = useState(false);
 
   const [checkedState, setCheckedState] = useState(
     new Array(attributes.length).fill(false)
   );
 
-  // Get number of attributes / category
-  const attributesByCategory = [
-    sampleNFTData[0].attributes.length,
-    sampleNFTData[1].attributes.length,
-    sampleNFTData[2].attributes.length,
-    sampleNFTData[3].attributes.length,
-    sampleNFTData[4].attributes.length,
-    sampleNFTData[5].attributes.length,
-    sampleNFTData[6].attributes.length,
-    sampleNFTData[7].attributes.length,
-    sampleNFTData[8].attributes.length,
-    sampleNFTData[9].attributes.length,
-  ];
+  const attributesCategory = {
+    Skeleton: 1,
+    Teeth: 2,
+    Eyes: 3,
+    Bandanas: 4,
+    EyeCover: 5,
+    Cloths: 6,
+    Accessories: 7,
+    Hats: 8,
+    InMouth: 9,
+    Beard: 10,
+  };
 
   const updateFilter = (attributeName: string) => {
-    const filteredArr = metadata;
+    const filteredArr = filter;
+    const categoryIndex = attributesCategory[name.replace(/ /g, "")];
 
-    checkedState.forEach((value, index) => {
-      console.log(value, index);
-    });
-
-    setFilter(filteredArr);
+    setFilter(
+      filteredArr.filter(
+        (item) => item.attributes[categoryIndex].value === attributeName
+      )
+    );
   };
 
   const handleOnChange = (position: any, attributeName: string) => {
     const updatedCheckedState = checkedState
-      .map((item, index) => (position !== index && item ? !item : item))
-      .map((item, index) => (index === position ? !item : item));
+      .map((item, index) => {
+        setFilter(metadata);
+        return position !== index && item ? !item : item;
+      })
+      .map((item, index) => {
+        return index === position ? !item : item;
+      });
     setCheckedState(updatedCheckedState);
 
-    updateFilter(attributeName);
     // Filter metadata if attribute selected
-    // if (updatedCheckedState[position]) updateFilter(attributeName);
-    // else setFilter(metadata);
+    if (updatedCheckedState[position]) updateFilter(attributeName);
 
     setIsActive(false);
   };

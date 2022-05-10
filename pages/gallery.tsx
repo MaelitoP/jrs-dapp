@@ -62,6 +62,7 @@ const GalleryPage = ({ metadata }) => {
                   attributes={attributes}
                   setFilter={setFilter}
                   metadata={metadata}
+                  filter={filter}
                 />
               ))}
             </div>
