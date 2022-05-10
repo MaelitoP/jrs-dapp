@@ -27,8 +27,29 @@ const VIPPage = () => (
           owning one you may want to hold on to it.
         </p>
 
-        <div className="flex justify-center mt-14">
-          <button className="relative group overflow-hidden px-14 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-green-300 via-yellow-300 to-pink-300">
+        <div className="flex-wrap justify-center mt-14">
+          <div className="w-1/3 mx-auto mb-10">
+            <label className="font-light text-xs text-gray-600 py-2">
+              How many ?
+            </label>
+
+            <div className="flex flex-row h-9 w-full rounded-lg relative bg-transparent mt-2 ">
+              <button className="bg-gray-800 text-white hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-l-lg cursor-pointer outline-none">
+                <span className="items-center text-2xl font-thin">-</span>
+              </button>
+
+              <input
+                type="number"
+                className="outline-none focus:outline-none block text-center w-full bg-gray-600 font-semibold text-md hover:text-gray-200 focus:text-gray-100  md:text-basecursor-default flex items-center text-white"
+                defaultValue="0"
+              ></input>
+              <button className="bg-gray-800 text-white hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r-lg cursor-pointer">
+                <span className="m-auto text-2xl font-thin">+</span>
+              </button>
+            </div>
+          </div>
+
+          <button className="mx-auto relative group overflow-hidden px-14 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-green-300 via-yellow-300 to-pink-300">
             <span className="relative text-sm font-medium text-white">
               GET ACCESS
             </span>

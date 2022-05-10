@@ -19,21 +19,7 @@ const MintPage = () => (
             <div className="mt-5">
               <div className="form">
                 <div className="md:flex flex-row md:space-x-4 w-full text-xs">
-                  <div className="mb-3 space-y-2 w-full text-xs">
-                    <label className="font-semibold text-gray-600 py-2">
-                      Price
-                    </label>
-                    <input
-                      defaultValue="0"
-                      className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                      required
-                      type="number"
-                    />
-                    <p className="text-red text-xs hidden">
-                      Please fill out this field.
-                    </p>
-                  </div>
-                  <div className="mb-3 space-y-2 w-full text-xs">
+                  <div className="mb-3 space-y-2 w-3/4 text-xs mx-auto">
                     <div className="">
                       <label className="font-semibold text-gray-600 py-2">
                         How many ?
