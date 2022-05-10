@@ -22,7 +22,6 @@ const GalleryPage = ({ metadata }) => {
 
   const getMoreData = () => {
     if (current.length === filter.length) {
-      console.log("No more images to load...");
       setHasMore(false);
       return;
     }
@@ -79,17 +78,18 @@ const GalleryPage = ({ metadata }) => {
                     nft: { image: string; description: string },
                     index: number
                   ) => (
-                    <Image
-                      key={index}
-                      style={{ marginRight: 5, borderRadius: 8 }}
-                      blurDataURL="https://media1.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif?cid=ecf05e4738ueiwkbt9433t8ezfdj9ivu1z0fv188vms7q7vb&rid=giphy.gif&ct=g"
-                      placeholder="blur"
-                      src={nft.image}
-                      alt={nft.description}
-                      width="255"
-                      height="255"
-                      priority
-                    />
+                    <div key={index}>
+                      <Image
+                        style={{ marginRight: 5, borderRadius: 8 }}
+                        blurDataURL="https://media1.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif?cid=ecf05e4738ueiwkbt9433t8ezfdj9ivu1z0fv188vms7q7vb&rid=giphy.gif&ct=g"
+                        placeholder="blur"
+                        src={nft.image}
+                        alt={nft.description}
+                        width="255"
+                        height="255"
+                        priority
+                      />
+                    </div>
                   )
                 )}
             </InfiniteScroll>

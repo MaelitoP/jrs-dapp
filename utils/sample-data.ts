@@ -9,10 +9,40 @@ export const sampleNFTData: Attributes[] = [
         name: 'Bones',
       },
       {
+        name: 'Dirty',
+      },
+      {
+        name: 'Burned',
+      },
+      {
+        name: 'Oil stains',
+      },
+      {
         name: 'Moss',
       },
       {
+        name: 'Rock 1',
+      },
+      {
+        name: 'Rock 2',
+      },
+      {
+        name: 'Camo',
+      },
+      {
+        name: 'Peeling paint',
+      },
+      {
+        name: 'Splatters',
+      },
+      {
         name: 'Zombie',
+      },
+      {
+        name: 'Lava',
+      },
+      {
+        name: 'Gold',
       },
     ],
   },
