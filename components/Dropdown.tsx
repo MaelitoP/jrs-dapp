@@ -41,8 +41,10 @@ const Dropdown = ({
   };
 
   const updateFilter = (attributeName: string) => {
-    const filteredArr = filter;
+    const filteredArr = metadata;
     const categoryIndex = attributesCategory[name.replace(/ /g, "")];
+
+    console.log(filteredArr);
 
     setFilter(
       filteredArr.filter(
@@ -52,18 +54,20 @@ const Dropdown = ({
   };
 
   const handleOnChange = (position: any, attributeName: string) => {
-    const updatedCheckedState = checkedState
-      .map((item, index) => {
-        setFilter(metadata);
-        return position !== index && item ? !item : item;
-      })
-      .map((item, index) => {
-        return index === position ? !item : item;
-      });
+    const updatedIndex = false;
+
+    const updatedCheckedState = checkedState.map((item, index) => {
+      if (position !== index && item) setFilter(metadata);
+      return index === position || (position !== index && item) ? !item : item;
+    });
+
+    console.log(filter);
+
     setCheckedState(updatedCheckedState);
 
     // Filter metadata if attribute selected
     if (updatedCheckedState[position]) updateFilter(attributeName);
+    else setFilter(metadata);
 
     setIsActive(false);
   };

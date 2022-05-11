@@ -66,6 +66,7 @@ const GalleryPage = ({ metadata }) => {
                 />
               ))}
             </div>
+
             <InfiniteScroll
               className="gallery col-span-3 grid grid-cols-3 gap-8"
               dataLength={filter.length}
@@ -79,24 +80,20 @@ const GalleryPage = ({ metadata }) => {
                     nft: { image: string; description: string },
                     index: number
                   ) => (
-                    <div key={index}>
-                      <Image
-                        style={{ marginRight: 5, borderRadius: 8 }}
-                        blurDataURL="https://media1.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif?cid=ecf05e4738ueiwkbt9433t8ezfdj9ivu1z0fv188vms7q7vb&rid=giphy.gif&ct=g"
-                        placeholder="blur"
-                        src={nft.image}
-                        alt={nft.description}
-                        width="255"
-                        height="255"
-                        priority
-                      />
-                    </div>
+                    <Image
+                      key={index}
+                      style={{ marginRight: 5, borderRadius: 8 }}
+                      blurDataURL="https://media1.giphy.com/media/xTkcEQACH24SMPxIQg/giphy.gif?cid=ecf05e4738ueiwkbt9433t8ezfdj9ivu1z0fv188vms7q7vb&rid=giphy.gif&ct=g"
+                      placeholder="blur"
+                      src={nft.image}
+                      alt={nft.description}
+                      width="255"
+                      height="255"
+                      priority
+                    />
                   )
                 )}
             </InfiniteScroll>
-            <button className="text-white" onClick={() => getMoreData()}>
-              - Load more -
-            </button>
           </div>
         </div>
       </div>

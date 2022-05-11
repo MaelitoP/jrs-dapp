@@ -27,7 +27,16 @@ const Image = (props) => {
     }
   }, [props.loading, props.priority]);
 
-  return <NextImage loading={loading} {...props} />;
+  return (
+    <div
+      style={{
+        height: "255px",
+        maxHeight: "255px",
+      }}
+    >
+      <NextImage loading={loading} {...props} />
+    </div>
+  );
 };
 
 const isMobileConnection = () => {
