@@ -124,7 +124,10 @@ const VIPPage = () => {
                   </div>
                   <button
                     type="button"
-                    onClick={() => setMessage("")}
+                    onClick={() => {
+                      setMessage("");
+                      setError(false);
+                    }}
                     className="ml-auto -mx-1.5 -my-1.5 bg-gray-100 text-gray-500 rounded-lg focus:ring-2 focus:ring-gray-400 p-1.5 hover:bg-gray-200 inline-flex h-8 w-8 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
                   >
                     <span className="sr-only">Dismiss</span>
