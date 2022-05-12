@@ -17,8 +17,23 @@ const GalleryPage = ({ metadata }) => {
     next: 10,
   });
 
+  const [filterItems, setFilterItems] = useState(new Array(10).fill(null));
   const [hasMore, setHasMore] = useState(true);
   const [current, setCurrent] = useState(filter.slice(count.prev, count.next));
+
+  const getDataWithoutFilter = () => {
+    let updatedData = metadata;
+    for (let attribute of filterItems) {
+      if (attribute) {
+        updatedData = updatedData.filter(
+          (item) =>
+            item.attributes[filterItems.indexOf(attribute)].value === attribute
+        );
+      }
+    }
+
+    return updatedData;
+  };
 
   const getMoreData = () => {
     if (current.length === filter.length) {
@@ -39,8 +54,9 @@ const GalleryPage = ({ metadata }) => {
   };
 
   useEffect(() => {
-    setCurrent(filter);
-  }, [filter]);
+    console.log("Filter Data updated: ", filterItems);
+    console.log("New metadata: ", getDataWithoutFilter());
+  }, [filterItems]);
 
   return (
     <div className="wrapper">
@@ -58,11 +74,10 @@ const GalleryPage = ({ metadata }) => {
               {sampleNFTData.map(({ name, attributes }) => (
                 <Dropdown
                   key={name}
-                  name={name}
+                  categoryName={name}
                   attributes={attributes}
-                  setFilter={setFilter}
-                  metadata={metadata}
-                  filter={filter}
+                  filterItems={filterItems}
+                  setFilterItems={setFilterItems}
                 />
               ))}
             </div>

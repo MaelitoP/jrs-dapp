@@ -1,25 +1,18 @@
 import React, { useState, Dispatch } from "react";
-import {
-  RiArrowDownSLine,
-  RiArrowUpSLine,
-  RiContactsBookUploadLine,
-} from "react-icons/ri";
-import { sampleNFTData } from "../utils/sample-data";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 type TProps = {
-  name: string;
+  categoryName: string;
   attributes: any;
-  filter: any;
-  setFilter: Dispatch<React.SetStateAction<string>>;
-  metadata: any;
+  filterItems: any;
+  setFilterItems: Dispatch<React.SetStateAction<string[]>>;
 };
 
 const Dropdown = ({
-  name,
+  categoryName,
   attributes,
-  setFilter,
-  metadata,
-  filter,
+  filterItems,
+  setFilterItems,
 }: TProps) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -40,47 +33,50 @@ const Dropdown = ({
     Beard: 10,
   };
 
-  const updateFilter = (attributeName: string) => {
-    const filteredArr = metadata;
-    const categoryIndex = attributesCategory[name.replace(/ /g, "")];
+  const categoryIndex = attributesCategory[categoryName.replace(/ /g, "")];
 
-    console.log(filteredArr);
-
-    setFilter(
-      filteredArr.filter(
-        (item) => item.attributes[categoryIndex].value === attributeName
-      )
-    );
+  const addFilter = (attributeName: string) => {
+    console.log("Filtre ajouté.");
+    const filtered = filterItems;
+    filtered[categoryIndex] = attributeName;
+    setFilterItems(filtered);
+    console.log(filterItems);
   };
 
-  const handleOnChange = (position: any, attributeName: string) => {
-    const updatedIndex = false;
+  const removeFilter = () => {
+    console.log("Filtre supprimé.");
+    const filtered = filterItems;
+    filtered[categoryIndex] = null;
+    setFilterItems(filtered);
+    console.log(filterItems);
+  };
 
+  const handleOnChange = (
+    position: any,
+    attributeName: string,
+    value: boolean
+  ) => {
     const updatedCheckedState = checkedState.map((item, index) => {
-      if (position !== index && item) setFilter(metadata);
       return index === position || (position !== index && item) ? !item : item;
     });
 
-    console.log(filter);
+    // Update filtered data's
+    if (value) addFilter(attributeName);
+    else removeFilter();
 
+    // Update local state
     setCheckedState(updatedCheckedState);
-
-    // Filter metadata if attribute selected
-    if (updatedCheckedState[position]) updateFilter(attributeName);
-    else setFilter(metadata);
-
-    setIsActive(false);
   };
 
   return (
     <div className="filter-item mb-5 border-b-[1px] border-gray-600">
       <div className="filter-title" onClick={() => setIsActive(!isActive)}>
-        <div className="italic">{name}</div>
+        <div className="italic">{categoryName}</div>
         <div>{isActive ? <RiArrowUpSLine /> : <RiArrowDownSLine />}</div>
       </div>
       {isActive && (
         <div className="filter-content">
-          {attributes.map(({ name }, index) => {
+          {attributes.map(({ name }, index: number) => {
             return (
               <div key={index}>
                 <label className="inline-flex items-center mt-2">
@@ -90,7 +86,9 @@ const Dropdown = ({
                     name={name}
                     value={name}
                     checked={checkedState[index]}
-                    onChange={() => handleOnChange(index, name)}
+                    onChange={(e) =>
+                      handleOnChange(index, name, e.target.checked)
+                    }
                   />
                   <span className="ml-2 text-gray-400">{name}</span>
                 </label>
