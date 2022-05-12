@@ -268,13 +268,13 @@ export const sampleNFTData: Attributes[] = [
     name: 'Cloths',
     attributes: [
       {
-        name: 'Trait 1',
+        name: 'Shirt white',
       },
       {
-        name: 'Trait 2',
+        name: 'Shirt white jrs',
       },
       {
-        name: 'Trait 3',
+        name: 'Shirt dirty',
       },
     ],
   },
@@ -282,13 +282,79 @@ export const sampleNFTData: Attributes[] = [
     name: 'Accessories',
     attributes: [
       {
-        name: 'Trait 1',
+        name: 'Belt black ring',
       },
       {
-        name: 'Trait 2',
+        name: 'Belt gold ring',
       },
       {
-        name: 'Trait 3',
+        name: 'Katana gold 1',
+      },
+      {
+        name: 'Katana gold 2',
+      },
+      {
+        name: 'Katana black red',
+      },
+      {
+        name: 'Katana gold red',
+      },
+      {
+        name: 'Katana black',
+      },
+      {
+        name: 'Sword rusted',
+      },
+      {
+        name: 'Sword black',
+      },
+      {
+        name: 'Sword gold',
+      },
+      {
+        name: 'Dagger rusted',
+      },
+      {
+        name: 'Dagger black',
+      },
+      {
+        name: 'Dagger gold jrs',
+      },
+      {
+        name: 'Gun brown rusted',
+      },
+      {
+        name: 'Gun beige rusted',
+      },
+      {
+        name: 'Gun brown gold',
+      },
+      {
+        name: 'Gun beige gold',
+      },
+      {
+        name: 'Gun tan beige rusted',
+      },
+      {
+        name: 'Gun tan brown rusted',
+      },
+      {
+        name: 'Gun tan beige gold jrs',
+      },
+      {
+        name: 'Chain jrs silver',
+      },
+      {
+        name: 'Chain jrs gold',
+      },
+      {
+        name: 'Chain eth gold',
+      },
+      {
+        name: 'Chain eth black blue glow',
+      },
+      {
+        name: 'Chain jrs gold skull',
       },
     ],
   },
