@@ -25,13 +25,13 @@ const Navbar: React.FC<Props> = ({ active_page }) => {
             HOME
           </a>
         </Link>
-        <Link href="/gallery">
+        <Link href="/vip">
           <a
             className={`hover:text-teal-400 ${
-              active_page === "Gallery" ? "active" : ""
+              active_page === "VIP" ? "active" : ""
             }`}
           >
-            GALLERY
+            BECOMRE MEMBER
           </a>
         </Link>
         <div className="flex items-center">

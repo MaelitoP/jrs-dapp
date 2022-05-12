@@ -27,12 +27,12 @@ const IndexPage = () => (
               <br />
               THE JRS COLLECTION
             </h1>
-            <Link href="/vip">
+            <Link href="/gallery">
               <button
                 className="welcome-btn bg-teal-400 mb-4 w-100 hover:bg-white"
                 type="button"
               >
-                BECOME A VIP
+                DISCOVER THE GALLERY
               </button>
             </Link>
           </div>
