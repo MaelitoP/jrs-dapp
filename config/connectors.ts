@@ -6,8 +6,6 @@ export const injected = new InjectedConnector({
   supportedChainIds: [1, 4],
 })
 
-console.log(process.env.RPC_URL)
-
 export const walletconnect = new WalletConnectConnector({
   rpc: ['https://api.etherscan.io/', process.env.RPC_URL],
   chainId: 4,

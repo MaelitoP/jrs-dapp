@@ -1,11 +1,56 @@
 import React, { useState } from "react";
+import { Contract } from "ethers";
+import { useWeb3React } from "@web3-react/core";
+import { Web3Provider } from "@ethersproject/providers";
 
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import { Accordion } from "../components/Accordion";
 
+import { sm_data } from "../config/contracts";
+
 const VIPPage = () => {
-  const [accessNumber, setAccessNumber] = useState(1);
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // Fetch VIP contract data
+  const { address, abi } = sm_data.testnet.jrsva;
+
+  // Fetch connected wallet data
+  const { library, active, account } = useWeb3React<Web3Provider>();
+
+  // Mint a VIP
+  const handleAccess = async () => {
+    if (!active && !account) {
+      setError(true);
+      setMessage("You're wallet isn't connected.");
+      return;
+    }
+
+    const contract = new Contract(address, abi, library);
+    const mintedNbr = await contract.numberMinted(account);
+
+    if (mintedNbr._hex === "0x01") {
+      setError(true);
+      setMessage("You already have VIP access.");
+      return;
+    }
+
+    const tx = await contract.connect(library.getSigner()).mint({
+      gasLimit: 100000,
+      value: "180000000000000000",
+    });
+
+    try {
+      await tx.wait();
+    } catch (err) {
+      setError(true);
+      setMessage("An error occurred with the contract.");
+      return;
+    }
+
+    setMessage("JRS VIP Pass received ! Welcome Sailor.");
+  };
 
   return (
     <div className="wrapper">
@@ -33,42 +78,10 @@ const VIPPage = () => {
           </p>
 
           <div className="flex-wrap justify-center mt-14">
-            <div className="w-1/3 mx-auto mb-10">
-              <label className="font-light text-xs text-gray-600 py-2">
-                How many ?
-              </label>
-
-              <div className="flex flex-row h-9 w-full rounded-lg relative bg-transparent mt-2 ">
-                <button
-                  className="bg-gray-800 text-white hover:text-white hover:bg-gray-700 h-full w-20 rounded-l-lg cursor-pointer outline-none"
-                  onClick={() => {
-                    if (accessNumber != 0) setAccessNumber(accessNumber - 1);
-                  }}
-                >
-                  <span className="items-center text-2xl font-thin">-</span>
-                </button>
-
-                <input
-                  type="number"
-                  className="outline-none focus:outline-none block text-center w-full bg-white font-semibold text-md md:text-basecursor-default flex items-center text-gray-500"
-                  value={accessNumber}
-                  onChange={(e) => {
-                    const value = parseInt(e.target.value);
-                    if (value >= 0) setAccessNumber(value);
-                  }}
-                ></input>
-                <button
-                  className="bg-gray-800 text-white hover:text-white hover:bg-gray-700 h-full w-20 rounded-r-lg cursor-pointer"
-                  onClick={() => {
-                    setAccessNumber(accessNumber + 1);
-                  }}
-                >
-                  <span className="m-auto text-2xl font-thin">+</span>
-                </button>
-              </div>
-            </div>
-
-            <button className="mx-auto relative group overflow-hidden px-14 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-green-300 via-yellow-300 to-pink-300">
+            <button
+              className="mx-auto relative group overflow-hidden px-14 h-12 rounded-full flex space-x-2 items-center bg-gradient-to-r from-green-300 via-yellow-300 to-pink-300"
+              onClick={handleAccess}
+            >
               <span className="relative text-sm font-medium text-white">
                 GET ACCESS
               </span>
@@ -90,6 +103,87 @@ const VIPPage = () => {
                 </svg>
               </div>
             </button>
+
+            {error && (
+              <>
+                <div className="flex p-4 bg-gray-100 rounded-lg dark:bg-gray-700 mt-14">
+                  <svg
+                    className="flex-shrink-0 w-5 h-5 text-gray-700 dark:text-gray-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  <div className="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {message}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setMessage("")}
+                    className="ml-auto -mx-1.5 -my-1.5 bg-gray-100 text-gray-500 rounded-lg focus:ring-2 focus:ring-gray-400 p-1.5 hover:bg-gray-200 inline-flex h-8 w-8 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+                  >
+                    <span className="sr-only">Dismiss</span>
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </>
+            )}
+            {message && !error && (
+              <>
+                <div className="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200 mt-14">
+                  <svg
+                    className="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  <div className="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+                    {message}
+                  </div>
+                  <button
+                    type="button"
+                    className="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300"
+                    onClick={() => setMessage("")}
+                  >
+                    <span className="sr-only">Close</span>
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
 
           <div className="flex items-end h-1/3 text-white">

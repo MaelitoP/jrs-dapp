@@ -28,10 +28,7 @@ const connectorsByName: { [connectorName in ConnectorNames]: any } = {
 
 const LoginPage = () => {
   const context = useWeb3React<Web3Provider>();
-  const { connector, library, account, activate, deactivate, active, error } =
-    context;
-
-  console.log(context);
+  const { connector, account, activate, active } = context;
 
   // Handle logic to recognize the connector currently being activated
   const [activatingConnector, setActivatingConnector] = useState<any>();
