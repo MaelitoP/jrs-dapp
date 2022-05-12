@@ -10,16 +10,25 @@ import Dropdown from "../components/Dropdown";
 import Image from "../components/Image";
 
 const GalleryPage = ({ metadata }) => {
-  const [filter, setFilter] = useState(metadata);
-
   const [count, setCount] = useState({
     prev: 0,
     next: 10,
   });
-
-  const [filterItems, setFilterItems] = useState(new Array(10).fill(null));
+  const [filter, setFilter] = useState(metadata);
   const [hasMore, setHasMore] = useState(true);
+  const [filterItems, setFilterItems] = useState(new Array(10).fill(null));
   const [current, setCurrent] = useState(filter.slice(count.prev, count.next));
+
+  const updateInfiniteScroll = () => {
+    const updatedData = getUpdatedData();
+    setFilter(updatedData);
+    setCount({
+      prev: 0,
+      next: 10,
+    });
+    setCurrent(updatedData.slice(count.prev, count.next));
+    setHasMore(true);
+  };
 
   const getUpdatedData = () => {
     let updatedData = metadata;
