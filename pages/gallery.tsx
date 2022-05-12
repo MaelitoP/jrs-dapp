@@ -21,7 +21,7 @@ const GalleryPage = ({ metadata }) => {
   const [hasMore, setHasMore] = useState(true);
   const [current, setCurrent] = useState(filter.slice(count.prev, count.next));
 
-  const getDataWithoutFilter = () => {
+  const getUpdatedData = () => {
     let updatedData = metadata;
     for (let attribute of filterItems) {
       if (attribute) {
@@ -54,9 +54,9 @@ const GalleryPage = ({ metadata }) => {
   };
 
   useEffect(() => {
-    console.log("Filter Data updated: ", filterItems);
-    console.log("New metadata: ", getDataWithoutFilter());
-  }, [filterItems]);
+    const updatedData = getUpdatedData();
+    setCurrent(updatedData);
+  }, [filterItems, this]);
 
   return (
     <div className="wrapper">

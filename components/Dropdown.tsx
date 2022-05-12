@@ -1,4 +1,4 @@
-import React, { useState, Dispatch } from "react";
+import React, { useState, Dispatch, useEffect } from "react";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 type TProps = {
@@ -14,6 +14,7 @@ const Dropdown = ({
   filterItems,
   setFilterItems,
 }: TProps) => {
+  useEffect(() => {}, [filterItems]);
   const [isActive, setIsActive] = useState(false);
 
   const [checkedState, setCheckedState] = useState(
@@ -37,18 +38,16 @@ const Dropdown = ({
 
   const addFilter = (attributeName: string) => {
     console.log("Filtre ajouté.");
-    const filtered = filterItems;
+    const filtered = [...filterItems];
     filtered[categoryIndex] = attributeName;
     setFilterItems(filtered);
-    console.log(filterItems);
   };
 
   const removeFilter = () => {
     console.log("Filtre supprimé.");
-    const filtered = filterItems;
+    const filtered = [...filterItems];
     filtered[categoryIndex] = null;
     setFilterItems(filtered);
-    console.log(filterItems);
   };
 
   const handleOnChange = (
@@ -66,6 +65,8 @@ const Dropdown = ({
 
     // Update local state
     setCheckedState(updatedCheckedState);
+
+    setIsActive(false);
   };
 
   return (
