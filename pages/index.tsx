@@ -32,7 +32,7 @@ const IndexPage = () => (
                 className="welcome-btn bg-teal-400 mb-4 w-100 hover:bg-white"
                 type="button"
               >
-                DISCOVER THE GALLERY
+                SEE THE GALLERY
               </button>
             </Link>
           </div>

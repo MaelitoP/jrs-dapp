@@ -1,5 +1,5 @@
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: ['ipfs.io'],
     formats: ['image/avif', 'image/webp'],
