@@ -37,6 +37,7 @@ const VIPPage = () => {
     }
 
     const tx = await contract.connect(library.getSigner()).mint({
+      // gasLimit = average of(metamaskLimit * 3)
       gasLimit: 100000,
       value: "180000000000000000",
     });
