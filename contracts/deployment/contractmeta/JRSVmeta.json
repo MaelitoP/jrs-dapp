@@ -1,0 +1,8 @@
+{
+    "name": "Jolly Rogers Society VIP",
+    "description": "The JRS VIP pass is a collection of 88 very unique NFTs giving advantages to the holder when combined with a JRS Pirate NFT. There will not be more VIPs in the future so if you are among the lucky ones owning one you may want to hold on to it.",
+    "image": "https://bafybeihlibrqrdfyb5hiqcakre425kmbxzy3ueyfzghjub6zhvoigopo3e.ipfs.dweb.link/nfts/logo_small.png",
+    "external_link": "https://www.jollyrogersociety.com/",
+    "seller_fee_basis_points": 250,
+    "fee_recipient": "0x1c240E08fcBC4a397C3F5c195A8460d508977786" 
+  }

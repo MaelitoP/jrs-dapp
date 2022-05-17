@@ -3,13 +3,14 @@ import { AppProps } from "next/app";
 
 import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
+import { ethers } from "ethers";
 
 import Layout from "../components/layouts/Layout";
 
 import "../styles/index.css";
 
 function getLibrary(provider: any): Web3Provider {
-  const library = new Web3Provider(provider);
+  const library = new ethers.providers.Web3Provider(provider);
   library.pollingInterval = 12000;
   return library;
 }
