@@ -1,2 +1,2 @@
 ## JRS dApp
-### by Novalabs
+Made with ❤️ by Maëlito
