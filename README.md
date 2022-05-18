@@ -2,7 +2,7 @@
 Decentralized application realized for the JRS project. 
 
 ### Web app
-Build with `Next`& `Typescript`. Features:
+Build with `Next` & `Tailwind` in `Typescript`. Features:
 * Multi-wallet connection
 * NFT Gallery
   - Image component optimisation to increase loading speed
