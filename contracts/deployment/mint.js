@@ -7,8 +7,9 @@ const prov = 'https://eth-rinkeby.alchemyapi.io/v2/LdzTkU5oPjZCy7KjMdCLEXeSnV07C
 const accounts = require('./accounts.json')
 const jrsva = require('./smartcontracts/JRSVA.json')
 
-const deployer = '78d431126988ed07bd9ab95d539e2ec8d01da4860949c895a52f4f20e9c34c40' // Arii Dev
-const second_key = "8e6d2ac5a7fb33fd7bf6e4d58b4989e98c3162ba1d2e5cb90ff4b4765482562e"
+// Fake
+const deployer = '78d431126988ed07bd9ab95d539e2ec8d01da4860949c895a52f4f20e9c34c600'
+const second_key = "8e6d2ac5a7fb33fd7bf6e4d58b4989e98c3162ba1d2e5cb90ff4b4765482562d"
 
 async function mintNFT () {
     const provider = new ethers.providers.JsonRpcProvider(prov);
