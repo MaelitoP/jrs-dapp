@@ -16,5 +16,6 @@ Build with `Solidity` & `Hardhat`. Created:
 * ERC721A contract for VIP
 * ERC721A contract for Art Collection
 * Royalties implemantation in both contracts
+* Testing contracts in `Javascript` w/ Hardhat.
 
 Made with ❤️ by Maël LE PETIT.
