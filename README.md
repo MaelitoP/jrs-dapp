@@ -7,6 +7,7 @@ Build with `Next`& `Typescript`. Features:
 * NFT Gallery
   - Image component optimisation to increase loading speed
   - Infinite Scroll
+  - Create system to filter by attributes
 * VIP Whitelist
 * Minting
 
