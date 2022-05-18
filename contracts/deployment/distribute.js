@@ -7,7 +7,7 @@ const provider = new ethers.providers.JsonRpcProvider(prov);
 
 const accounts = require('./accounts.json')
 
-const deployer = '8c0d28a69bebe72b609ee864ab296ccb63887d89f12f80741b1189b795352224' // Arii Dev
+const deployer = '8c0d28a69bebe72b609ee864ab296ccb63887d89f12f80741b1189b795352228' // Arii Dev
 
 
 async function distribute () {
